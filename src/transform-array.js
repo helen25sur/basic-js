@@ -11,26 +11,25 @@ module.exports = function transform(arr) {
 			case '--discard-next':
 				if (i !== arr.length - 1) {
 					i = i + 2;
-					continue;
 				}
+				continue;
 			case '--discard-prev':
-				if (arr[i - 1] !== undefined) {
+				if (arr[i - 1] !== undefined && i !== 0) {
 					resultArr.pop();
 				}
 				continue;
 			case '--double-next':
-				if (arr[i + 1] !== undefined) {
+				if (arr[i + 1] !== undefined && i !== arr.length - 1) {
 					resultArr.push(arr[i + 1]);
 				}
 				continue;
 			case '--double-prev':
-				if (arr[i - 1] !== undefined) {
+				if (arr[i - 1] !== undefined && i !== 0) {
 					resultArr.push(arr[i - 1]);
 				}
 				continue;
-			default:
-				resultArr.push(arr[i]);
 		}
+		resultArr.push(arr[i]);
 	}
 	return resultArr;
 };
