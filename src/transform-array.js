@@ -13,22 +13,21 @@ module.exports = function transform(arr) {
 					i = i + 2;
 					continue;
 				}
-				break;
 			case '--discard-prev':
 				if (arr[i - 1] !== undefined) {
 					resultArr.pop();
 				}
-				break;
+				continue;
 			case '--double-next':
 				if (arr[i + 1] !== undefined) {
 					resultArr.push(arr[i + 1]);
 				}
-				break;
+				continue;
 			case '--double-prev':
 				if (arr[i - 1] !== undefined) {
 					resultArr.push(arr[i - 1]);
 				}
-				break;
+				continue;
 			default:
 				resultArr.push(arr[i]);
 		}
